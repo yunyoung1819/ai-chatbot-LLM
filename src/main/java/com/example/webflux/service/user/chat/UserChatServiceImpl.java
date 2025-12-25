@@ -1,5 +1,6 @@
 package com.example.webflux.service.user.chat;
 
+import com.example.webflux.model.llmclient.LlmChatRequestDto;
 import com.example.webflux.model.user.chat.UserChatRequestDto;
 import com.example.webflux.model.user.chat.UserChatResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,8 @@ public class UserChatServiceImpl implements UserChatService {
 
     @Override
     public Mono<UserChatResponseDto> getOneShotChat(UserChatRequestDto userChatRequestDto) {
+        LlmChatRequestDto llmChatRequestDto = new LlmChatRequestDto(userChatRequestDto,
+            "요청에 적절히 응답해주세요.");
         return null;
     }
 }

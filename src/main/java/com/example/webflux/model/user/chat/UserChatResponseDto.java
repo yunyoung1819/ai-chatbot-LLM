@@ -1,6 +1,5 @@
 package com.example.webflux.model.user.chat;
 
-import com.example.webflux.model.llmclient.LlmModel;
 import java.io.Serial;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
@@ -12,10 +11,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserChatRequestDto implements Serializable {
+public class UserChatResponseDto implements Serializable {
     @Serial
-    private static final long serialVersionUID = 4995931142869792388L;
+    private static final long serialVersionUID = -2479640483541743119L;
 
-    private String request;
-    private LlmModel llmModel;
+    private String response;
 }

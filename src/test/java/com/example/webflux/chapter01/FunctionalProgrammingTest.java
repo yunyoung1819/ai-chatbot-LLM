@@ -1,4 +1,4 @@
-package com.example.webflux;
+package com.example.webflux.chapter01;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,13 +2,16 @@ package com.example.webflux.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+import reactor.core.scheduler.Schedulers;
 
 @RestController
 @RequestMapping("/reactive")
+@Slf4j
 public class ReactiveProgrammingExampleController {
 
     // 1~9까지 출력하는 api
@@ -29,15 +32,16 @@ public class ReactiveProgrammingExampleController {
     // 비동기로 동작 - 논블로킹하게 동작
     @GetMapping("/onenine/flux")
     public Flux<Integer> produceOneToNineFlux() {
-        return Flux.create(sink -> {
+        return Flux.<Integer>create(sink -> {
            for (int i = 1; i <= 9; i++) {
                try {
+                   log.info("현재 처리하고 있는 스레드 이름 : " + Thread.currentThread().getName());
                    Thread.sleep(500);
                } catch (Exception e) {
                }
                sink.next(i);
            }
            sink.complete();
-        });
+        }).subscribeOn(Schedulers.boundedElastic());
     }
 }

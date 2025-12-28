@@ -13,6 +13,7 @@ import reactor.core.publisher.Mono;
 public class GptWebClientService implements LlmWebClientService {
 
     private final WebClient webClient;
+    private String getApiKey;
 
     @Override
     public Mono<LlmChatResponseDto> getChatCopletion(LlmChatRequestDto requestDto) {
@@ -21,6 +22,6 @@ public class GptWebClientService implements LlmWebClientService {
 
     @Override
     public LlmType getLlmType() {
-        return null;
+        return LlmType.GPT;
     }
 }

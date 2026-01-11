@@ -6,7 +6,7 @@ import com.example.webflux.model.llmclient.LlmType;
 import reactor.core.publisher.Mono;
 
 public interface LlmWebClientService {
-    Mono<LlmChatResponseDto> getChatCopletion(LlmChatRequestDto requestDto);
+    Mono<LlmChatResponseDto> getChatCompletion(LlmChatRequestDto requestDto);
 
     LlmType getLlmType();
     // gptWebClientService, GeminiWebClientService

@@ -2,6 +2,7 @@ package com.example.webflux.controller.user.chat;
 
 import com.example.webflux.model.user.chat.UserChatRequestDto;
 import com.example.webflux.model.user.chat.UserChatResponseDto;
+import com.example.webflux.service.user.chat.UserChatService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,9 +15,11 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class UserChatController {
 
+    private final UserChatService userChatService;
+
     @PostMapping("/oneshot")
     public Mono<UserChatResponseDto> oneShotChat(@RequestBody UserChatRequestDto userChatRequestDto) {
         // 서비스에서 request 가공해서 response 돌려줘야함
-        return Mono.empty();
+        return userChatService.getOneShotChat(userChatRequestDto);
     }
 }

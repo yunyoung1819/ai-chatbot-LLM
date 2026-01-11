@@ -18,8 +18,8 @@ public class GptChatRequestDto implements Serializable {
     @Serial
     private static final long serialVersionUID = -9073152758692500958L;
 
-    private List<GptCompletionRequestDto> message;
-    private LlmModel model;
+    private List<GptCompletionRequestDto> messages;
+    private String model;
     private Boolean stream;
     private GptResponseFormat response_format;
 
@@ -27,9 +27,9 @@ public class GptChatRequestDto implements Serializable {
         if (llmChatRequestDto.isUseJson()) {
             this.response_format = new GptResponseFormat("json_object");
         }
-        this.message = List.of(
+        this.messages = List.of(
             new GptCompletionRequestDto(GptMessageRole.SYSTEM, llmChatRequestDto.getSystemPrompt()),
             new GptCompletionRequestDto(GptMessageRole.USER, llmChatRequestDto.getUserRequest()));
-        this.model = llmChatRequestDto.getLlmModel();
+        this.model = llmChatRequestDto.getLlmModel().getCode();
     }
 }

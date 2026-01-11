@@ -14,12 +14,10 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/chat")
 @RequiredArgsConstructor
 public class UserChatController {
-
     private final UserChatService userChatService;
 
     @PostMapping("/oneshot")
     public Mono<UserChatResponseDto> oneShotChat(@RequestBody UserChatRequestDto userChatRequestDto) {
-        // 서비스에서 request 가공해서 response 돌려줘야함
         return userChatService.getOneShotChat(userChatRequestDto);
     }
 }

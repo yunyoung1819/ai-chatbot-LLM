@@ -19,7 +19,7 @@ public class GptChatResponseDto implements Serializable {
 
     private List<GptChoice> choices;
 
-    public GptChoice getSinleChoice() {
+    public GptChoice getSingleChoice() {
         return choices.stream().findFirst().orElseThrow();
     }
 }

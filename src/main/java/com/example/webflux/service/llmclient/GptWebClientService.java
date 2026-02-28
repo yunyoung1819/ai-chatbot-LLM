@@ -19,6 +19,7 @@ import reactor.core.publisher.Mono;
 public class GptWebClientService implements LlmWebClientService {
 
     private final WebClient webClient;
+
     @Value("${llm.gpt.key}")
     private String getApiKey;
 

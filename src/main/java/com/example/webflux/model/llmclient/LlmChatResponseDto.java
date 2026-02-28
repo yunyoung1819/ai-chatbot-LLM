@@ -19,6 +19,6 @@ public class LlmChatResponseDto implements Serializable {
     private String llmResponse;
 
     public LlmChatResponseDto(GptChatResponseDto gptChatResponseDto) {
-        this.llmResponse = gptChatResponseDto.getSinleChoice().getMessage().getContent();
+        this.llmResponse = gptChatResponseDto.getSingleChoice().getMessage().getContent();
     }
 }

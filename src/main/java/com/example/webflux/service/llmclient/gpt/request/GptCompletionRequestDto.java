@@ -16,6 +16,6 @@ public class GptCompletionRequestDto implements Serializable {
     @Serial
     private static final long serialVersionUID = -3867368537247877877L;
 
-    private GptMessageRole role;
-    private String content; // 채팅 내용
+    private GptMessageRole role; // 시스템 프로픔트, 유저 입력, AI 응답
+    private String content;      // 채팅 내용
 }

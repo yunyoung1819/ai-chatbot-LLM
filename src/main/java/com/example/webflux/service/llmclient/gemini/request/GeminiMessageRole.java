@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum GeminiMessageRole {
     USER,
-    MODEL;
+    MODEL
+    ;
 
     @JsonValue
     @Override
